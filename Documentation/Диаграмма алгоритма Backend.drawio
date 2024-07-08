@@ -1,0 +1,99 @@
+<mxfile host="app.diagrams.net" modified="2024-07-06T15:32:22.222Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.3.1 Safari/605.1.15" etag="an27U12_5_Bh_nIG7T4W" version="24.6.4" type="device">
+  <diagram name="Страница — 1" id="cuUOHPPfk-GLIYDSuAUX">
+    <mxGraphModel dx="2054" dy="681" grid="1" gridSize="9" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="MmA3KvlLZvn9jF8ZRURW-55" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="MmA3KvlLZvn9jF8ZRURW-1" target="MmA3KvlLZvn9jF8ZRURW-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="MmA3KvlLZvn9jF8ZRURW-1" value="&lt;i&gt;&lt;b&gt;&lt;u&gt;Модуль предоставлений списка мероприятий&amp;nbsp;&lt;/u&gt;&lt;/b&gt;&lt;/i&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="441" y="234" width="153" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="MmA3KvlLZvn9jF8ZRURW-56" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="MmA3KvlLZvn9jF8ZRURW-5" target="MmA3KvlLZvn9jF8ZRURW-21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="MmA3KvlLZvn9jF8ZRURW-5" value="Делаем запрос в БД и получаем список мероприятий&amp;nbsp;" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" vertex="1" parent="1">
+          <mxGeometry x="603" y="343" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="MmA3KvlLZvn9jF8ZRURW-57" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="MmA3KvlLZvn9jF8ZRURW-21" target="MmA3KvlLZvn9jF8ZRURW-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="MmA3KvlLZvn9jF8ZRURW-21" value="Тестирование и обработка данных" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" vertex="1" parent="1">
+          <mxGeometry x="457.5" y="343" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="MmA3KvlLZvn9jF8ZRURW-25" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="MmA3KvlLZvn9jF8ZRURW-23" target="MmA3KvlLZvn9jF8ZRURW-24">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="MmA3KvlLZvn9jF8ZRURW-23" value="&lt;b&gt;&lt;i&gt;&lt;u&gt;Модуль регистрации пользователя&lt;/u&gt;&lt;/i&gt;&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-45" y="4.5" width="153" height="69" as="geometry" />
+        </mxCell>
+        <mxCell id="MmA3KvlLZvn9jF8ZRURW-60" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="MmA3KvlLZvn9jF8ZRURW-24" target="MmA3KvlLZvn9jF8ZRURW-32">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="MmA3KvlLZvn9jF8ZRURW-24" value="Пользователь отправляет INFO на backend" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="153" y="9" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="MmA3KvlLZvn9jF8ZRURW-62" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="MmA3KvlLZvn9jF8ZRURW-32">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="372" y="351" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="MmA3KvlLZvn9jF8ZRURW-32" value="Генерация и хеширование пароля и в БД" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="312" y="9" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="MmA3KvlLZvn9jF8ZRURW-67" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="MmA3KvlLZvn9jF8ZRURW-35" target="MmA3KvlLZvn9jF8ZRURW-23">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="MmA3KvlLZvn9jF8ZRURW-35" value="Отправка результата регистрации пользователю" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="24" y="104" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="MmA3KvlLZvn9jF8ZRURW-50" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="MmA3KvlLZvn9jF8ZRURW-41" target="MmA3KvlLZvn9jF8ZRURW-49">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="MmA3KvlLZvn9jF8ZRURW-41" value="Модуль добавлений &amp;nbsp;мероприятий&amp;nbsp;" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=7" vertex="1" parent="1">
+          <mxGeometry x="-9" y="234" width="153" height="63" as="geometry" />
+        </mxCell>
+        <mxCell id="MmA3KvlLZvn9jF8ZRURW-52" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="MmA3KvlLZvn9jF8ZRURW-43" target="MmA3KvlLZvn9jF8ZRURW-45">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="MmA3KvlLZvn9jF8ZRURW-65" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="MmA3KvlLZvn9jF8ZRURW-43" target="MmA3KvlLZvn9jF8ZRURW-39">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="MmA3KvlLZvn9jF8ZRURW-43" value="База данных" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="1">
+          <mxGeometry x="324" y="315" width="108" height="117" as="geometry" />
+        </mxCell>
+        <mxCell id="MmA3KvlLZvn9jF8ZRURW-48" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="MmA3KvlLZvn9jF8ZRURW-45">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="72" y="306" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="MmA3KvlLZvn9jF8ZRURW-45" value="БД передает результаты о добавлнеие Event&amp;nbsp;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="99" y="343" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="MmA3KvlLZvn9jF8ZRURW-63" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="MmA3KvlLZvn9jF8ZRURW-49">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="369" y="315" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="MmA3KvlLZvn9jF8ZRURW-49" value="Пользователь добавляет мероприятие на основе Classa_event" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="198" y="235.5" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="MmA3KvlLZvn9jF8ZRURW-54" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="MmA3KvlLZvn9jF8ZRURW-1" target="MmA3KvlLZvn9jF8ZRURW-43">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="369" y="264" />
+              <mxPoint x="369" y="315" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="MmA3KvlLZvn9jF8ZRURW-66" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="MmA3KvlLZvn9jF8ZRURW-39" target="MmA3KvlLZvn9jF8ZRURW-35">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="MmA3KvlLZvn9jF8ZRURW-39" value="Получаем и обрабатываем пароль и заносим в Хеш-таблицу" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" vertex="1" parent="1">
+          <mxGeometry x="219" y="99" width="135" height="70" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
