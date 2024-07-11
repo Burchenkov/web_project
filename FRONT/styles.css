@@ -1,0 +1,56 @@
+
+
+header {
+    display: flex;
+    justify-content: center;
+    background-color: aquamarine;
+    height: 40px;
+    /* width: 100%; */
+
+}
+
+
+.logo {
+    
+    color: white;
+    -webkit-text-stroke: 1px #3F776A
+  }
+
+div.brand {    
+    /* width: 20%; */
+    background-color: aliceblue;
+    height: 40px;
+}
+
+
+div.search {
+    /* width: 50%; */
+    background-color: azure;
+    height: 40px;
+
+}
+
+
+div.reg {
+    /* width: 20%; */
+    height: 40px;
+    background-color: #ffffff
+}
+
+input.search {
+    /* width: 600px; */
+    border-color: #529374;
+    border-radius: 5px;
+    height: 30px;
+}
+button {
+    border: none;
+    color: #ffffff;
+    border-radius: 5px;
+    background-color: #529374;
+    height: 30px;
+    margin-right: 15px;
+    margin-left: 15px;
+    padding: 0px 15px;
+    
+}
