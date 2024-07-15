@@ -1,44 +1,26 @@
+.container {
+    display: flex; / *  Используем flexbox для выравнивания элементов  * /
+    justify-content: center; / *  Выравниваем элементы по центру строки  * /
+    align-items: center; / *  Выравниваем содержимое элементов по вертикали  * /
+  }
 
+.item {
+    /* width: 100px; / *  Ширина каждого элемента  * / */
+    height: 100px; / *  Высота каждого элемента  * /
+    background-color: #ff0000; / *  Цвет фона для наглядности  * /
+    margin: 10px; / *  Добавляем немного пространства между элементами  * /
+  }
 
-header {
-    display: flex;
-    justify-content: center;
-    background-color: aquamarine;
-    height: 40px;
-    /* width: 100%; */
-
-}
 
 
 .logo {
     
     color: white;
-    -webkit-text-stroke: 1px #3F776A
+    -webkit-text-stroke: 1px #3F776A;
   }
 
-div.brand {    
-    /* width: 20%; */
-    background-color: aliceblue;
-    height: 40px;
-}
-
-
-div.search {
-    /* width: 50%; */
-    background-color: azure;
-    height: 40px;
-
-}
-
-
-div.reg {
-    /* width: 20%; */
-    height: 40px;
-    background-color: #ffffff
-}
-
-input.search {
-    /* width: 600px; */
+input {
+    width: 600px;
     border-color: #529374;
     border-radius: 5px;
     height: 30px;
@@ -49,8 +31,68 @@ button {
     border-radius: 5px;
     background-color: #529374;
     height: 30px;
-    margin-right: 15px;
-    margin-left: 15px;
-    padding: 0px 15px;
-    
+    margin-right: 10px;
+    margin-left: 10px;
+     
+}
+
+/* _________________________РЕГИСТРАЦИЯ_________________________ */
+
+body {
+    font-family: Arial;
+    margin: 0;
+    padding: 0;
+}
+
+.login-signup-container {
+    display: inline-block;
+    font-family: Arial;
+    max-width: 300px;
+    border-radius: 5px;
+    text-align: center;
+    background-color: white;
+}
+
+#signup-form {
+    position: absolute;
+    width: 300px;
+    top: -20%;
+    opacity: 0;
+    transition: all .5s;
+    z-index: -1;
+    background-color: #ffffff;
+}
+
+#login-form {
+    position: absolute;
+    width: 300px;
+    top: -20%;
+    opacity: 0;
+    transition: all .5s;
+    z-index: -1;
+    background-color: #ffffff;
+}
+
+/* input {
+    margin-bottom: 10px;
+    padding: 5px;
+} */
+
+/* button {
+    padding: 5px 75px;
+    background-color: #3F776A;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-top: 10px;
+} */
+
+a {
+    color: #3F776A;
+    text-decoration: none;
+}
+
+#privacyPolicy {
+    cursor: pointer;
 }
