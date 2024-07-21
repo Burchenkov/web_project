@@ -29,3 +29,24 @@ class Organizer(User):
 
     def change_phone(self, new_phone_number) -> None:
         pass
+
+
+class Event:
+    def __init(self, title, category, date, location, description):
+        self.title = title
+        self.category = category
+        self.date = date
+        self.location = location
+        self.description = description
+
+    def get(self):
+        pass
+
+    def add(self):
+        pass
+
+    def change(self):
+        pass
+
+    def remove(self):
+        pass

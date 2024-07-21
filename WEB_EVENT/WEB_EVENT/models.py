@@ -22,4 +22,12 @@ class Organizer(models.Model):
     role = models.CharField()
     password = models.CharField(max_length=30)
     phone_number = models.IntegerField()
-    # ToDo vents_list = ?
+    # ToDo events_list = ?
+
+
+class Event(models.Model):
+    title = models.CharField(max_length=200)
+    category = models.CharField()
+    date = models.DateTimeField()
+    location = models.CharField(max_length=100)
+    description = models.CharField(max_length=500)
