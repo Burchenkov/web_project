@@ -1,7 +1,16 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
 .container {
     display: flex;
     justify-content: center;
     align-items: center; 
+ }
+
+ .description {
+    display: flex;
+    justify-content: center;
+    align-items: left; 
  }
 
 .item {
@@ -11,85 +20,101 @@
     align-items: center;
 }
 
+.date {
+    
+    width: 340px;
+    text-align: left; 
+}
+
+.adress {
+    width: 340px;
+    margin: 10px;
+    margin-left: 30px;
+    text-align: left; 
+}
+
+.price {
+    margin-left: 30px;
+    text-align: left;
+    font-weight: lighter;
+    font-size: 14pt;
+    color: #909090;   
+}
+
+#coming {
+    margin-left: 20px;
+    width: 120px;
+
+}
+
+.textLight {
+    font-weight: lighter;
+    font-size: 12pt;
+    color: #909090;
+}
+
+.textNormal {
+    font-weight: normal;
+    font-size: 12pt;
+}
+
+.divider {
+    height: 60px;
+    width: 2px;
+    background-color: #505050;
+}
+
 .logo {   
     color: white;
     -webkit-text-stroke: 2px #3F776A;
 }
 
-input {
-    border-color: #529374;
-    border-radius: 5px;
-}
-
-input.search {
-    width: 600px;
-    height: 30px;
-}
-
 button {
-    border: none;
+    border-radius: 10px;
+    border-color: #3F776A;
+    color: #3F776A;
+    background-color: #ffffff;
+    height: 40px;
+    font-weight: normal;
+    font-size: 14pt;
+}
+
+button:hover {
     color: #ffffff;
-    border-radius: 5px;
     background-color: #529374;
-    height: 30px;
-    margin-right: 5px;
-}
-
-/* _________________________РЕГИСТРАЦИЯ_________________________ */
-
-body {
-    font-family: Arial;
-    margin: 0;
-    padding: 0;
- }
-
-.login-signup-container {
-    display: flex;
-    justify-items: center;
-    font-family: Arial;
-    width: 100%;
-    border-radius: 5px;
-    text-align: center;
-    background-color: white;
-    z-index: 1;
-}
-
-#signup-form {
-    position: absolute;
-    margin-left: 38%;
-    width: 300px;
-    height: 300px;
-    top: -20%;
-    opacity: 0;
-    transition: all .5s;
-    z-index: 100;
-    background-color: #ffffff;
-    box-shadow: 12px 12px 2px 1px rgba(65, 120, 110, .3);
-}
-
-#login-form {
-    position: absolute;
-    margin-left: 38%;
-    width: 300px;
-    height: 250px;
-    top: -20%;
-    opacity: 0;
-    transition: all .5s;
-    z-index: 100;
-    background-color: #ffffff;
-    box-shadow: 12px 12px 2px 1px rgba(65, 120, 110, .3);
-}
-
-input {  
-    padding: 8px;
-    margin: 5px;
 }
 
 a {
-    color: #3F776A;
-    text-decoration: none;
-}
-
-#privacyPolicy {
     cursor: pointer;
 }
+
+.eventBigImage {
+    width: 980px;
+    height: 500px;
+    margin-left: 120px;
+    object-fit: cover
+}
+
+h1.name {
+    font-size: 32pt;
+    width: 860px;
+}
+
+.ageLimit {
+    font-size: 28pt;
+    font-weight: lighter;
+}
+
+.organizer {
+    display: flex;
+    align-items: center;
+    margin: 0 -5px;
+}
+
+.organizerAva {
+    height: 65px;
+    width: 65px;
+    object-fit: cover;
+}
+
+
