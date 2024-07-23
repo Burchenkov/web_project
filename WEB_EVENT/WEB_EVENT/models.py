@@ -1,33 +1,41 @@
 # models of the WEB_EVENT project
 
 from django.db import models
+from datetime import datetime
 
 
 class User(models.Model):
-    name = models.CharField(max_length=30)
-    surname = models.CharField(max_length=30)
     email = models.CharField(max_length=100)
     login = models.CharField(max_length=30)
-    age = models.IntegerField()
-    role = models.CharField()
+    role = models.CharField(default="user")
     password = models.CharField(max_length=30)
+
+    objects = models.Manager()
+
+    class Meta:
+        ordering = ('email', )
 
 
 class Organizer(models.Model):
-    name = models.CharField(max_length=30)
-    surname = models.CharField(max_length=30)
     email = models.CharField(max_length=100)
     login = models.CharField(max_length=30)
-    age = models.IntegerField()
     role = models.CharField()
     password = models.CharField(max_length=30)
-    phone_number = models.IntegerField()
-    # ToDo events_list = ?
+
+    objects = models.Manager()
+
+    class Meta:
+        ordering = ('email', )
 
 
 class Event(models.Model):
     title = models.CharField(max_length=200)
     category = models.CharField()
-    date = models.DateTimeField()
+    date = models.DateTimeField(default=datetime.now)
     location = models.CharField(max_length=100)
-    description = models.CharField(max_length=500)
+    description = models.CharField(max_length=1024)
+
+    objects = models.Manager()
+
+    class Meta:
+        ordering = ('title',)
