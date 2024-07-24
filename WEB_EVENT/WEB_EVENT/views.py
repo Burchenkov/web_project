@@ -26,3 +26,11 @@ def user_create(request):
             user_serializer.save()
             return JSONResponse(user_serializer.data, status=status.HTTP_201_CREATED)
     return JSONResponse(user_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+@csrf_exempt
+def events_get(request):
+    events = Event.objects.all()
+    events_serializer = EventSerializer(events, many=True)
+    return JSONResponse(events_serializer.data, status=status.HTTP_200_OK)
+
