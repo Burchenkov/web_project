@@ -1,8 +1,28 @@
 from django.shortcuts import render
-from django.contrib.auth.models import User
-from .serializers import UserSerializer
-from rest_framework.renderers import JSONRenderer
 from django.http import HttpResponse
-from rest_framework import viewsets
+from django.views.decorators.csrf import csrf_exempt
+
+from rest_framework.renderers import JSONRenderer
+from rest_framework.parsers import JSONParser
+from rest_framework import status
+
+from .models import User, Organizer, Event
+from .serializers import UserSerializer, EventSerializer
 
 
+class JSONResponse(HttpResponse):
+    def __init__(self, data, **kwargs):
+        content = JSONRenderer().render(data)
+        kwargs['content_type'] = 'application/json'
+        super(JSONResponse, self).__init__(content, **kwargs)
+
+
+@csrf_exempt
+def user_create(request):
+    user_data = JSONParser().parse(request)
+    user_serializer = UserSerializer(data=user_data)
+    if request.method == 'POST':
+        if user_serializer.is_valid():
+            user_serializer.save()
+            return JSONResponse(user_serializer.data, status=status.HTTP_201_CREATED)
+    return JSONResponse(user_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
