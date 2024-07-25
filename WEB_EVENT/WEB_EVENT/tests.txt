@@ -1,14 +1,22 @@
-# This file includes examples of testing API
+# This file includes examples of testing API. There we have two options for using:
+#  - curl
+#  - httpie
+# HTTPie is a bit comfortable for checking JSON data.
 
 
-# getting of the list Events from backend:
+# CURL getting of the list Events from backend:
     curl -X GET http://localhost:8000/events/
 
+# CURL getting of the list Events from backend with headers:
+    curl -iX GET http://localhost:8000/events/
+
+# HTTPie getting of the list Events from backend with headers:
+    http :8000/events/
 
 # This code is for testing by Django SHELL without views and URL's part of the project:
     from six import BytesIO
     from rest_framework import JSONRenderer
-    from rest_framework improt JSONParser
+    from rest_framework import JSONParser
     from WEB_EVENT.models import Event
     from WEB_EVENT.serializer import EventSerializer
 
