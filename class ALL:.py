@@ -1,4 +1,6 @@
 
+import hashlib
+
 class User:
     user_id = 1  # переменная для хранения ID пользователей
     users = {}  # Хеш-таблица для хранения пользователей
@@ -7,19 +9,29 @@ class User:
         self.email = email
         self.login = login
         self.role = role
-        self.password = password
+        self.password = self.encrypt_password(password)  # Шифруем пароль
         self.avatar = avatar
         self.id = User.user_id  # Присваиваем ID пользователю
         User.users[self.id] = self  # Добавляем пользователя в хеш-таблицу
         User.user_id += 1  # Увеличиваем ID для следующего пользователя
 
     @classmethod
-    def login(cls, login: str, password: str):# Проверка логина и пароля пользователя (верны ли они)
+    def login(cls, login: str, password: str):  # Проверка логина и пароля пользователя (верны ли они)
         for user in cls.users.values():
-            if user.login == login and user.password == password:
+            if user.login == login and user.decrypt_password(password) == user.password:
                 return user
+        print("Логин и пароль неверны")  # Выводим сообщение, если логин и пароль неверны
         return None
-        
+
+    def encrypt_password(self, password: str) -> str:
+        # Шифруем пароль с помощью SHA-256
+        return hashlib.sha256(password.encode()).hexdigest()
+
+    def decrypt_password(self, password: str) -> str:
+        # Дешифруем пароль с помощью SHA-256
+        return hashlib.sha256(password.encode()).hexdigest()
+
+
         
 class Organizer(User):
     def __init__(self, email: str, login: str, role: str, password: str,image: str, name: str, surname: str):
@@ -49,12 +61,18 @@ class Event:
         self.age_limit = age_limit
         self.time = time
 
+from datetime import datetime
+
 class Comment(User):
     def __init__(self, email: str, login: str, role: str, password: str, avatar: str, rating: int, text: str, image: str):
         super().__init__(email, login, role, password, avatar)
         self.rating = rating
         self.text = text
         self.image = image
+        self.created_at = datetime.now()  # Добавляем дату и время написания
+
+    def __str__(self):
+        return f"Email: {self.email}\nLogin: {self.login}\nRole: {self.role}\nAvatar: {self.avatar}\nRating: {self.rating}\nText: {self.text}\nImage: {self.image}\nCreated at: {self.created_at}"
   
         
 
