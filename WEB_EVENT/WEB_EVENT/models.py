@@ -5,27 +5,15 @@ from datetime import datetime
 
 
 class User(models.Model):
-    email = models.CharField(max_length=100)
-    login = models.CharField(max_length=30)
+    email = models.CharField(max_length=100, unique=True)
+    login = models.CharField(max_length=30, unique=True)
     role = models.CharField(default="user")
     password = models.CharField(max_length=30)
 
     objects = models.Manager()
 
     class Meta:
-        ordering = ('email', )
-
-
-class Organizer(models.Model):
-    email = models.CharField(max_length=100)
-    login = models.CharField(max_length=30)
-    role = models.CharField()
-    password = models.CharField(max_length=30)
-
-    objects = models.Manager()
-
-    class Meta:
-        ordering = ('email', )
+        ordering = ('email',)
 
 
 class Event(models.Model):
