@@ -1,30 +1,29 @@
 # This file includes examples of testing API
 
 
-# getting of the list Events from backend
-curl -X GET http://localhost:8000/events/
+# getting of the list Events from backend:
+    curl -X GET http://localhost:8000/events/
 
 
-# This code is for testing by Django SHELL without views and URL's part of the project.
+# This code is for testing by Django SHELL without views and URL's part of the project:
+    from six import BytesIO
+    from rest_framework import JSONRenderer
+    from rest_framework improt JSONParser
+    from WEB_EVENT.models import Event
+    from WEB_EVENT.serializer import EventSerializer
 
-from six import BytesIO
-from rest_framework import JSONRenderer
-from rest_framework improt JSONParser
-from WEB_EVENT.models import Event
-from WEB_EVENT.serializer import EventSerializer
+    # Renderer from Python data(from DB) to JSON data format
+    event1 = {"title" : "MMA fight", "category" : "+16", "date" : "2024-10-10 11:00", "location" : "Khimki", "description" : "This is a light for MMA rules."}'
+    event1.save()
+    serialized_event1 = EventSerializer(event1)
+    json_renderer = JSONRenderer()
+    rendered_event1 = json_renderer.render(serialized_event1.data)
+    print(rendered_event1)
 
-# Renderer from Python data(from DB) to JSON data format
-event1 = {"title" : "MMA fight", "category" : "+16", "date" : "2024-10-10 11:00", "location" : "Khimki", "description" : "This is a light for MMA rules."}'
-event1.save()
-serialized_event1 = EventSerializer(event1)
-json_renderer = JSONRenderer()
-rendered_event1 = json_renderer.render(serialized_event1.data)
-print(rendered_event1)
-
-# Parser from JSON data to Python data structure
-json_string_for_new_event = '{"title" : "MMA fight", "category" : "+16", "date" : "2024-10-10 11:00", "location" : "Khimki", "description" : "This is a light for MMA rules."}'
-json_bytes_for_new_event = bytes(json_string_for_new_event, encoding="UTF-8")
-stream_for_new_event = BytesIO(json_bytes_for_new_event)
-parser = JSONParser()
-parsed_new_event = parser.parse(stream_for_new_event)
-print(parsed_new_event)
+    # Parser from JSON data to Python data structure
+    json_string_for_new_event = '{"title" : "MMA fight", "category" : "+16", "date" : "2024-10-10 11:00", "location" : "Khimki", "description" : "This is a light for MMA rules."}'
+    json_bytes_for_new_event = bytes(json_string_for_new_event, encoding="UTF-8")
+    stream_for_new_event = BytesIO(json_bytes_for_new_event)
+    parser = JSONParser()
+    parsed_new_event = parser.parse(stream_for_new_event)
+    print(parsed_new_event)
