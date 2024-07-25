@@ -1,0 +1,6 @@
+# This file includes examples of testing API
+
+
+# getting of the list Events from backend
+curl -X GET http://localhost/events
+
