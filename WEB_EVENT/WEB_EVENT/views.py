@@ -6,7 +6,7 @@ from rest_framework.renderers import JSONRenderer
 from rest_framework.parsers import JSONParser
 from rest_framework import status
 
-from .models import User, Organizer, Event
+from .models import User, Event
 from .serializers import UserSerializer, EventSerializer
 
 
@@ -26,6 +26,15 @@ def user_create(request):
             user_serializer.save()
             return JSONResponse(user_serializer.data, status=status.HTTP_201_CREATED)
     return JSONResponse(user_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+@csrf_exempt
+def user_login(request):
+    credentials_data = JSONParser().parse(request)
+    user_serializer = UserSerializer(data=credentials_data)
+    login = user_serializer.get('login')
+    password = user_serializer.get('login')
+    login = User.query.filter_by(username=login).first()
 
 
 @csrf_exempt

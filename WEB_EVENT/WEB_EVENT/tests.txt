@@ -1,5 +1,4 @@
 # This file includes examples of testing API. There we have two options for using:
-#  - curl
 #  - httpie
 # HTTPie is a bit comfortable for checking JSON data.
 

@@ -9,6 +9,25 @@ class User(models.Model):
     login = models.CharField(max_length=30, unique=True)
     role = models.CharField(default="user")
     password = models.CharField(max_length=30)
+    secret_phrase = models.CharField(max_length=30)
+    avatar = models.CharField(max_length=100)
+
+    objects = models.Manager()
+
+    class Meta:
+        ordering = ('email',)
+
+
+class Admin(User):
+
+    objects = models.Manager()
+
+    class Meta:
+
+        ordering = ('email',)
+
+
+class Organizer(User):
 
     objects = models.Manager()
 
@@ -17,13 +36,29 @@ class User(models.Model):
 
 
 class Event(models.Model):
-    title = models.CharField(max_length=200)
-    category = models.CharField()
+    event_name = models.CharField(max_length=200)
     date = models.DateTimeField(default=datetime.now)
-    location = models.CharField(max_length=100)
+    city = models.CharField(default='', max_length=50)
     description = models.CharField(max_length=1024)
+    price = models.IntegerField(default=0)
+    image = models.CharField(max_length=100)
+    age_limit = models.IntegerField(default=0)
+    start_time = models.TimeField(null=True)
+    duration = models.IntegerField(default=0)
+    user_limit = models.IntegerField(default=0)
 
     objects = models.Manager()
 
     class Meta:
-        ordering = ('title',)
+        ordering = ('event_name',)
+
+
+class Comment:
+    rating = models.IntegerField(default=0)
+    text = models.TextField(max_length=1024)
+    image = models.CharField(max_length=100)
+
+    objects = models.Manager()
+
+    class Meta:
+        ordering = ('rating',)

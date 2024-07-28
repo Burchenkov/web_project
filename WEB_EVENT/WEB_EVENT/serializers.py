@@ -1,25 +1,61 @@
-from . models import User, Organizer, Event
+from . models import User, Admin, Organizer, Event
 from rest_framework import serializers
 
 
-class UserSerializer(serializers.Serializer):
-    pk = serializers.IntegerField(read_only=True)
-    email = serializers.CharField(max_length=100)
-    login = serializers.CharField(max_length=30)
-    role = serializers.CharField(default='user')
-    password = serializers.CharField(max_length=30)
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = {
+            'pk',
+            'email',
+            'login',
+            'role',
+            'password',
+            'secret_phrase',
+            'avatar',
+        }
 
-    def create(self, validated_data):
-        return User.objects.create(**validated_data)
+
+class AdminSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Admin
+        fields = {
+            'pk',
+            'email',
+            'login',
+            'role',
+            'password',
+            'secret_phrase',
+            'avatar',
+        }
 
 
-class EventSerializer(serializers.Serializer):
-    pk = serializers.IntegerField(read_only=True)
-    title = serializers.CharField(max_length=200)
-    category = serializers.CharField()
-    date = serializers.DateTimeField()
-    location = serializers.CharField(max_length=100)
-    description = serializers.CharField(max_length=1024)
+class OrganizerSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Organizer
+        fields = {
+            'pk',
+            'email',
+            'login',
+            'role',
+            'password',
+            'secret_phrase',
+            'avatar',
+        }
 
-    def create(self, validated_data):
-        return Event.objects.create(**validated_data)
+
+class EventSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Event
+        fields = {
+            'pk',
+            'event_name',
+            'city',
+            'description',
+            'price',
+            'image',
+            'age_limit',
+            'start_time',
+            'duration',
+            'user_limit',
+        }
