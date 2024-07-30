@@ -37,7 +37,7 @@ class Organizer(User):
 
 class Event(models.Model):
     event_name = models.CharField(max_length=200)
-    date = models.DateTimeField(default=datetime.now)
+    date = models.DateField(default=datetime.now)
     city = models.CharField(default='', max_length=50)
     description = models.CharField(max_length=1024)
     price = models.IntegerField(default=0)
@@ -53,12 +53,8 @@ class Event(models.Model):
         ordering = ('event_name',)
 
 
-class Comment:
-    rating = models.IntegerField(default=0)
+class Comment(models.Model):
     text = models.TextField(max_length=1024)
-    image = models.CharField(max_length=100)
+    created_at = models.DateTimeField()
 
     objects = models.Manager()
-
-    class Meta:
-        ordering = ('rating',)

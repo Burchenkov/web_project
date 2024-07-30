@@ -33,7 +33,7 @@ def user_login(request):
     credentials_data = JSONParser().parse(request)
     user_serializer = UserSerializer(data=credentials_data)
     login = user_serializer.get('login')
-    password = user_serializer.get('login')
+    password = user_serializer.get('password')
     login = User.query.filter_by(username=login).first()
 
 

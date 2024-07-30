@@ -1,11 +1,11 @@
-from . models import User, Admin, Organizer, Event
+from .models import User, Admin, Organizer, Event, Comment
 from rest_framework import serializers
 
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = {
+        fields = (
             'pk',
             'email',
             'login',
@@ -13,13 +13,13 @@ class UserSerializer(serializers.ModelSerializer):
             'password',
             'secret_phrase',
             'avatar',
-        }
+        )
 
 
 class AdminSerializer(serializers.ModelSerializer):
     class Meta:
         model = Admin
-        fields = {
+        fields = (
             'pk',
             'email',
             'login',
@@ -27,13 +27,13 @@ class AdminSerializer(serializers.ModelSerializer):
             'password',
             'secret_phrase',
             'avatar',
-        }
+        )
 
 
 class OrganizerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Organizer
-        fields = {
+        fields = (
             'pk',
             'email',
             'login',
@@ -41,13 +41,13 @@ class OrganizerSerializer(serializers.ModelSerializer):
             'password',
             'secret_phrase',
             'avatar',
-        }
+        )
 
 
 class EventSerializer(serializers.ModelSerializer):
     class Meta:
         model = Event
-        fields = {
+        fields = (
             'pk',
             'event_name',
             'city',
@@ -58,4 +58,14 @@ class EventSerializer(serializers.ModelSerializer):
             'start_time',
             'duration',
             'user_limit',
-        }
+        )
+
+
+class CommentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Comment
+        fields = (
+            'pk',
+            'text',
+            'created_at',
+        )
