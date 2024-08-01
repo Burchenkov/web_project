@@ -31,10 +31,13 @@ def user_create(request):
 @csrf_exempt
 def user_login(request):
     credentials_data = JSONParser().parse(request)
-    user_serializer = UserSerializer(data=credentials_data)
-    login = user_serializer.get('login')
-    password = user_serializer.get('password')git sta
-    login = User.query.filter_by(username=login).first()
+    user_serializer = UserSerializer(credentials_data)
+    input_login = user_serializer.data["login"]         # login which input by user
+    input_password = user_serializer.data["password"]   # password which input by user
+    print(f"Login: {input_login}")
+    print(f"Password: {input_password}")
+
+    return JSONResponse(user_serializer.data["login"], status=status.HTTP_200_OK)
 
 
 @csrf_exempt
