@@ -23,11 +23,7 @@
     print(rendered_event1)
 
     # Parser from JSON data to Python data structure
-    json_string_for_new_event = '{"title" : "MMA fight",
-                                   "category" : "+16",
-                                   "date" : "2024-10-10 11:00",
-                                   "location" : "Khimki",
-                                   "description" : "This is a light for MMA rules."}'
+    json_string_for_new_event = '{"title" : "MMA fight", "category" : "+16", "date" : "2024-10-10 11:00", "location" : "Khimki", "description" : "This is a light for MMA rules."}'
     json_bytes_for_new_event = bytes(json_string_for_new_event, encoding="UTF-8")
     stream_for_new_event = BytesIO(json_bytes_for_new_event)
     parser = JSONParser()
@@ -36,46 +32,19 @@
 
 
 # creation of objects
-user1 = User(email = "someone@example.com",
-            login = "someone",
-            role = "user",
-            password = "q1w2e3r4",
-            secret_phrase = "Restore password",
-            avatar = "c:\avatar.jpeg"
-            )
+user1 = User(email = "someone@example.com", login = "someone", role = "user", password = "q1w2e3r4", secret_phrase = "Restore password", avatar = "c:\avatar.jpeg")
 user1.save()
 
-admin1 = Admin(email = "admin@example.com",
-            login = "admin",
-            role = "Admin",
-            password = "q1w2e3r4",
-            secret_phrase = "Restore password",
-            avatar = "c:\avatar_admin.jpeg"
-            )
+admin1 = Admin(email = "admin@example.com", login = "admin", role = "Admin", password = "q1w2e3r4", secret_phrase = "Restore password", avatar = "c:\avatar_admin.jpeg")
 admin1.save()
 
-organizer1 = Organizer(email = "organizer@example.com",
-            login = "organizer",
-            role = "Organizer",
-            password = "q1w2e3r4",
-            secret_phrase = "Restore password",
-            avatar = "c:\avatar_organizer.jpeg"
-            )
+organizer1 = Organizer(email = "organizer@example.com", login = "organizer", role = "Organizer", password = "q1w2e3r4", secret_phrase = "Restore password", avatar = "c:\avatar_organizer.jpeg")
 organizer1.save()
 
-event1 = Event(event_name = "MMA Fight",
-                date = "2024-01-01",
-                city = "Moscow",
-                description = "This is MMA Fight",
-                price = "0",
-                image = "c:\image_MMAFight.jpeg",
-                age_limit = "6",
-                start_time = "10:00:00",
-                duration = "2",
-                user_limit = "2000"
-                )
+event1 = Event(event_name = "MMA Fight", date = "2024-01-01", city = "Moscow", description = "This is MMA Fight", price = "0", image = "c:\image_MMAFight.jpeg", age_limit = "6", start_time = "10:00:00", duration = "2", user_limit = "2000")
 event1.save()
 
-comment1 = Comment(text = "This is a good fight",
-                    created_at = "2024-01-01 10:00:00"
-                    )
+comment1 = Comment(text = "This is a good fight", created_at = "2024-01-01 10:00:00")
+
+# test for signin procedure
+http POST :8000/signin/ email="someone@example.com" login="someone" role="user" password="q1w2e3r4" secret_phrase="Restore password" avatar="c:\avatar.jpeg"
