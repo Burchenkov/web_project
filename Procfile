@@ -1,1 +1,1 @@
-web: gunicorn WEB_EVENT.wsgicd venv
+web: gunicorn WEB_EVENT.wsgi --log-file -
