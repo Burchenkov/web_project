@@ -13,18 +13,27 @@
 
 .logo {   
     color: white;
-    -webkit-text-stroke: 2px #3F776A;
+    -webkit-text-stroke: 3px #3F927E;
+    font-size: 1.9rem;
+    margin-left: -75%;
+    margin-top: 35%
 }
 
 input {
-    border-color: #529374;
-    border-radius: 5px;
-    
+    border-color: #B1B1B1;
+    border-radius: 7px;
+    font-style: italic
 }
 
 input.search {
-    width: 600px;
-    height: 30px;
+    width: 850px;
+    height: 32px;
+}
+
+.mgfng-glass-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 9px;
 }
 
 button {
