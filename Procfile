@@ -1,1 +1,1 @@
-worker: gunicorn WEB_EVENT.wsgi --log-file -
+web: gunicorn WEB_EVENT.wsgi:application --bind 0.0.0.0:8080
