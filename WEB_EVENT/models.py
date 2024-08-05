@@ -7,7 +7,7 @@ from datetime import datetime
 class User(models.Model):
     email = models.CharField(max_length=100, unique=True)
     login = models.CharField(max_length=30, unique=True)
-    role = models.CharField(default="user")
+    role = models.CharField(max_length=30, default="user")
     password = models.CharField(max_length=30)
     secret_phrase = models.CharField(max_length=30)
     avatar = models.CharField(max_length=100)
