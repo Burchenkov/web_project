@@ -35,9 +35,11 @@ def user_login(request):
     user_serializer = UserSerializer(credentials_data)
     input_login = user_serializer.data["login"]         # login which input by user
     input_password = user_serializer.data["password"]   # password which input by user
-    print(f"Login: {input_login}")
-    print(f"Password: {input_password}")
-    return JSONResponse(user_serializer.data["login"], status=status.HTTP_200_OK)
+    db_user_object = User.objects.get(login=input_login)    # getting user object from db
+    if input_password == db_user_object.password:           # comparing input password and db password
+        return HttpResponse(status=status.HTTP_200_OK)
+    else:
+        return HttpResponse(status=status.HTTP_401_UNAUTHORIZED)
 
 
 @csrf_exempt
