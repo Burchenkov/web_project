@@ -1,0 +1,87 @@
+.position {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    position: relative;
+}
+
+.buttonSwitch {
+    text-align: center;
+    position: absolute; /* Положение кнопок остается абсолютным */
+    top: 20px; /* Располагаем кнопки сверху */
+    left: 50%;
+    transform: translateX(-50%); /* Центрируем кнопки */
+    z-index: 2;
+}
+
+button {
+    padding: 10px 10px;
+    width: 300px; /* Уменьшаем ширину кнопок */
+    background-color: #3F776A;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    margin: 5px 0; /* Отступ между кнопками */
+}
+
+#loginSignupContainer {
+    flex-direction: column; /* Устанавливаем вертикальное направление для форм */
+    align-items: center; /* Центрируем формы */
+    justify-content: center; /* Центрируем формы */
+    width: 300px; /* Увеличиваем ширину контейнера */
+    z-index: 2;
+    margin-top: 70px; /* Отступ сверху для кнопок */
+    padding: 20px; /* Добавляем отступы для увеличения фона */
+}
+
+#signup-form, #login-form {
+    display: none; /* Скрываем формы по умолчанию */
+    text-align: center;
+    width: 100%;
+}
+
+#signup-form.active,
+#login-form.active {
+    display: block; /* Показываем активную форму */
+    background-color: white;
+    margin-top: 70px; /* Отступ сверху для кнопок */
+    padding: 20px; /* Добавляем отступы для увеличения фона */
+    border-radius: 10px; /* Сглаживаем углы  */
+}
+
+input {
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+a {
+    color: #3F776A;
+    text-decoration: none;
+}
+
+/* Оверлей */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s;
+    z-index: 1;
+}
+
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+}

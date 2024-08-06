@@ -1,0 +1,39 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buttom</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="position">
+    <div class="buttonSwitch">
+      <button id="toggle-signup">Зарегистрироваться</button>
+      <button id="toggle-login">Войти</button>
+    </div>
+
+    <div id="loginSignupContainer">
+      <div id="signup-form">
+        <h2 id="regist">Регистрация</h2>
+        <input type="email" id="email" placeholder="Введите ваш email">
+        <input type="text" id="newUsername" placeholder="Новое имя пользователя">
+        <input type="password" id="newPassword" placeholder="Новый пароль">
+        <input type="secretPhrase" id="secretPhrase" placeholder="Секретная фраза"></br>
+        <button>Зарегистрироваться</button>
+      </div>
+
+      <div id="login-form">
+        <h2 id="formTitle">Вход</h2>
+        <form id="loginForm">
+          <input type="text" id="username" placeholder="Имя пользователя">
+          <input type="password" id="password" placeholder="Пароль">
+          <button type="submit">Войти</button>
+          <p class="pepa">Забыли <a href="#" id="toggleForm">пароль</a></p>
+        </form>
+      </div>
+    </div>
+  </div>
+    <div class="overlay" id="overlay"></div>
+    <script src="script.js"></script>
+</body>
+</html>
