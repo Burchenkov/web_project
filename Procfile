@@ -1,1 +1,1 @@
-web: gunicorn WEB_EVENT.wsgi:application --bind 0.0.0.0:8080 --log-level=debug --log-file=-
+web: gunicorn WEB_EVENT.wsgi:application --bind 127.0.0.1:8080 --log-level=debug --log-file=-
