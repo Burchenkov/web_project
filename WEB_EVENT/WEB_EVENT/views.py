@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
+from django.core.exceptions import ObjectDoesNotExist
 
 from rest_framework.renderers import JSONRenderer
 from rest_framework.parsers import JSONParser
@@ -8,7 +9,7 @@ from rest_framework import status
 from rest_framework.decorators import api_view
 
 from .models import User, Event
-from .serializers import UserSerializer, EventSerializer
+from .serializers import UserSerializer, EventSerializer, UserLoginSerializer
 
 
 class JSONResponse(HttpResponse):
@@ -32,14 +33,21 @@ def user_create(request):
 @csrf_exempt
 def user_login(request):
     credentials_data = JSONParser().parse(request)
-    user_serializer = UserSerializer(credentials_data)
+    user_serializer = UserLoginSerializer(credentials_data)
     input_login = user_serializer.data["login"]         # login which input by user
     input_password = user_serializer.data["password"]   # password which input by user
-    db_user_object = User.objects.get(login=input_login)    # getting user object from db
-    if input_password == db_user_object.password:           # comparing input password and db password
+
+    try:
+        db_user_object = User.objects.get(login=input_login)    # getting user object from db & checking that is exists
+    except ObjectDoesNotExist:
+        content = "Login does not exist. Please SingUP at first"
+        return HttpResponse(content, status=status.HTTP_401_UNAUTHORIZED)
+
+    if input_password == db_user_object.password:               # checking password if the user exists
         return HttpResponse(status=status.HTTP_200_OK)
     else:
-        return HttpResponse(status=status.HTTP_401_UNAUTHORIZED)
+        content = "The password is incorrect"
+        return HttpResponse(content, status=status.HTTP_401_UNAUTHORIZED)
 
 
 @csrf_exempt

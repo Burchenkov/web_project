@@ -8,45 +8,28 @@
 # creating of the new user
     http POST :8000/signup/ email="someone2@example.com" login="MegaUser" role="user" password="123456" secret_phrase="Restore password" avatar="c:\avatar.jpeg"
 
-# This code is for testing by Django SHELL without views and URL's part of the project:
-    from six import BytesIO
-    from rest_framework import JSONRenderer
-    from rest_framework import JSONParser
-    from WEB_EVENT.models import Event
-    from WEB_EVENT.serializer import EventSerializer
-
-    # Renderer from Python data(from DB) to JSON data format
-    event1 = Event(
-    serialized_event1 = EventSerializer(event1)
-    json_renderer = JSONRenderer()
-    rendered_event1 = json_renderer.render(serialized_event1.data)
-    print(rendered_event1)
-
-    # Parser from JSON data to Python data structure
-    json_string_for_new_event = '{"title" : "MMA fight", "category" : "+16", "date" : "2024-10-10 11:00", "location" : "Khimki", "description" : "This is a light for MMA rules."}'
-    json_bytes_for_new_event = bytes(json_string_for_new_event, encoding="UTF-8")
-    stream_for_new_event = BytesIO(json_bytes_for_new_event)
-    parser = JSONParser()
-    parsed_new_event = parser.parse(stream_for_new_event)
-    print(parsed_new_event)
-
-
 # creation of objects
-user1 = User(email = "someone@example.com", login = "someone", role = "user", password = "q1w2e3r4", secret_phrase = "Restore password", avatar = "c:\avatar.jpeg")
-user1.save()
+    user1 = User(email = "someone@example.com", login = "someone", role = "user", password = "q1w2e3r4", secret_phrase = "Restore password", avatar = "c:\avatar.jpeg")
+    user1.save()
 
-admin1 = Admin(email = "admin@example.com", login = "admin", role = "Admin", password = "q1w2e3r4", secret_phrase = "Restore password", avatar = "c:\avatar_admin.jpeg")
-admin1.save()
+    admin1 = Admin(email = "admin@example.com", login = "admin", role = "Admin", password = "q1w2e3r4", secret_phrase = "Restore password", avatar = "c:\avatar_admin.jpeg")
+    admin1.save()
 
-organizer1 = Organizer(email = "organizer@example.com", login = "organizer", role = "Organizer", password = "q1w2e3r4", secret_phrase = "Restore password", avatar = "c:\avatar_organizer.jpeg")
-organizer1.save()
+    organizer1 = Organizer(email = "organizer@example.com", login = "organizer", role = "Organizer", password = "q1w2e3r4", secret_phrase = "Restore password", avatar = "c:\avatar_organizer.jpeg")
+    organizer1.save()
 
-event1 = Event(event_name = "MMA Fight", date = "2024-01-01", city = "Moscow", description = "This is MMA Fight", price = "0", image = "c:\image_MMAFight.jpeg", age_limit = "6", start_time = "10:00:00", duration = "2", user_limit = "2000")
-event1.save()
+    event1 = Event(event_name = "MMA Fight", date = "2024-01-01", city = "Moscow", description = "This is MMA Fight", price = "0", image = "c:\image_MMAFight.jpeg", age_limit = "6", start_time = "10:00:00", duration = "2", user_limit = "2000")
+    event1.save()
 
-comment1 = Comment(text = "This is a good fight", created_at = "2024-01-01 10:00:00")
+    comment1 = Comment(text = "This is a good fight", created_at = "2024-01-01 10:00:00")
+
 
 # test for signin procedure
-http POST :8000/signin/ email="someone@example.com" login="someone" role="user" password="q1w2e3r4" secret_phrase="Restore password" avatar="c:\avatar.jpeg"
-http POST :8000/signin/ email="someone@example.com" login="someone" role="user" password="q1" secret_phrase="Restore password" avatar="c:\avatar.jpeg"
-http POST :8000/signin/ email="someone3@example.com" login="Someone3" role="user" password="12345" secret_phrase="Restore password" avatar="c:\avatar.jpeg"
+    # this is for incorrect password
+    http POST :8000/signin/ login="Unknown" password="12345"
+
+    # this is for incorrect password
+    http POST :8000/signin/ login="Someone3" password="12345"
+
+    # this is for correct password
+    http POST :8000/signin/ login="Someone3" password="12345"
