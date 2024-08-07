@@ -46,3 +46,5 @@ def events_get(request):
     events_serializer = EventSerializer(events, many=True)
     return JSONResponse(events_serializer.data, status=status.HTTP_200_OK)
 
+def home(request):
+    return JSONResponse({"Hello":"World"}, status=status.HTTP_200_OK)
