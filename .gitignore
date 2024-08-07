@@ -1,2 +1,4 @@
 venv
 testDB.py
+__pycache__
+migrations
