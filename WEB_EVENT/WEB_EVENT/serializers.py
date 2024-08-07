@@ -69,3 +69,13 @@ class CommentSerializer(serializers.ModelSerializer):
             'text',
             'created_at',
         )
+
+
+class UserLoginSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = (
+            'pk',
+            'login',
+            'password'
+        )
