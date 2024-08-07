@@ -1,3 +1,3 @@
-##WEB EVENTS APPLICATION
+## WEB EVENTS APPLICATION
 
-#Pet project from students
+# Pet project from students
