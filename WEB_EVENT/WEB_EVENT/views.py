@@ -55,4 +55,3 @@ def events_get(request):
     events = Event.objects.all()
     events_serializer = EventSerializer(events, many=True)
     return JSONResponse(events_serializer.data, status=status.HTTP_200_OK)
-
