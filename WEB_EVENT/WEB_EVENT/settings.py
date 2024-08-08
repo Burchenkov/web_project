@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure--=s^kyqzf56t=t3#vwmjuyp-6m20g#dddwy(%@7_d&t%76s4(1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'WEB_EVENT',
     'rest_framework',
+    'corsheaders',
 ]
 
 
@@ -95,11 +96,11 @@ WSGI_APPLICATION = 'WEB_EVENT.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'WEB_EVENT',
-        'USER': 'webprojectuser',
-        'PASSWORD': 'q1w2e3r4asdf',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': 'kXbnFqDZxRoGgOSYGqltMDuEEsfGyJjH',
+        'HOST': 'monorail.proxy.rlwy.net',
+        'PORT': '12888',
     }
 }
 

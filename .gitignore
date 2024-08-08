@@ -1,0 +1,5 @@
+venv
+testDB.py
+.idea/
+__pycache__
+migrations/

@@ -23,5 +23,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     re_path('^signup/$', views.user_create),
     re_path('^signin/$', views.user_login),
-    re_path('^events/$', views.events_get)
+    re_path('^events/$', views.events_get),
+    re_path('^event/(?P<pk>[0-9]+)$', views.event),
 ]

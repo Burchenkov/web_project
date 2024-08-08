@@ -1,6 +1,8 @@
 # This file includes examples of testing API. There we have two options for using:
 #  - httpie
 # HTTPie is a bit comfortable for checking JSON data.
+# Backend Dkango развернут по адресу:
+    http web-project-tahn4-u.vercel.app:80/events/
 
 # getting of the list Events from backend with headers:
     http :8000/events/
@@ -23,7 +25,6 @@
 
     comment1 = Comment(text = "This is a good fight", created_at = "2024-01-01 10:00:00")
 
-
 # test for signin procedure
     # this is for incorrect password
     http POST :8000/signin/ login="Unknown" password="12345"
@@ -33,3 +34,8 @@
 
     # this is for correct password
     http POST :8000/signin/ login="Someone3" password="12345"
+
+# test of event: ADD, UPDATE, DELETE. For those methods we should already have some events in BD,
+# because we have to provide pk(id) of this event in our DB
+    # getting of certain event
+    http :8000/event/1
