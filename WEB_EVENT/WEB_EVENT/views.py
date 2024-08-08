@@ -52,6 +52,34 @@ def user_login(request):
 
 @csrf_exempt
 def events_get(request):
-    events = Event.objects.all()
-    events_serializer = EventSerializer(events, many=True)
-    return JSONResponse(events_serializer.data, status=status.HTTP_200_OK)
+    if request.method == 'GET':
+        events = Event.objects.all()
+        events_serializer = EventSerializer(events, many=True)
+        return JSONResponse(events_serializer.data, status=status.HTTP_200_OK)
+
+
+@csrf_exempt
+def event(request, pk):
+    try:
+        event_obj = Event.objects.get(pk=pk)    # get of certain event object from DB by pk
+    except ObjectDoesNotExist:
+        return HttpResponse(status=status.HTTP_404_NOT_FOUND)
+
+    # get the certain event by pk
+    if request.method == 'GET':
+        event_serializer = EventSerializer(event_obj)
+        return JSONResponse(event_serializer.data)
+
+    # update of event object
+    if request.method == 'PUT':
+        event_data = JSONParser().parse(request)
+        event_serializer = EventSerializer(event, data=event_data)
+        if event_serializer.is_valid():
+            event_serializer.save()
+            return JSONResponse(event_serializer.data, status=status.HTTP_200_OK)
+        return HttpResponse(status=status.HTTP_400_BAD_REQUEST)
+
+    # delete of event object
+    if request.method == 'DELETE':
+        event_obj.delete()
+        return HttpResponse(status=status.HTTP_204_NO_CONTENT)

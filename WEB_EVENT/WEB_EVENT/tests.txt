@@ -34,3 +34,8 @@
 
     # this is for correct password
     http POST :8000/signin/ login="Someone3" password="12345"
+
+# test of event: ADD, UPDATE, DELETE. For those methods we should already have some events in BD,
+# because we have to provide pk(id) of this event in our DB
+    # getting of certain event
+    http :8000/event/1
