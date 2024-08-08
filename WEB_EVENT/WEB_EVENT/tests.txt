@@ -43,7 +43,7 @@ EVENT
 		http GET :8000/event_change/1
 
 		# create of the new event. Certain event we can find by pk
-		http POST :8000/event_add/ event_name="MMA Fight" date="2024-01-01" city="Ekaterinburg" description="This is MMA Fight" price="0" image="c:\image_MMAFight.jpeg"  age_limit="14"  start_time="10:00:00" duration="4" user_limit="1000"
+		http POST :8000/event_add/ event_name="MMA Fight" date="2024-01-01" city="Zelenograd" description="This is MMA Fight" price="0" image="c:\image_MMAFight.jpeg"  age_limit="14"  start_time="10:00:00" duration="4" user_limit="1000"
 		http POST :8000/event_add/ event_name="Boxing Fight" date="2024-10-10" city="Khimki" description="Roy Jones vs Mike Tyson" price="0" image="c:\image_BOXING.jpeg"  age_limit="8"  start_time="11:00:00" duration="2" user_limit="1000"
 		http POST :8000/event_add/ event_name="Бобслей" date="2024-07-07" city="Сочи" description="Чемпионат России" price=0 image="c:\бобслей.jpeg"  age_limit=0  start_time="11:00:00" duration=2 user_limit=1000
 		
