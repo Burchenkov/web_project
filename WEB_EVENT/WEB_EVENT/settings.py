@@ -86,21 +86,14 @@ WSGI_APPLICATION = 'WEB_EVENT.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway',
-        'USER': 'postgres',
-        'PASSWORD': 'kXbnFqDZxRoGgOSYGqltMDuEEsfGyJjH',
-        'HOST': 'monorail.proxy.rlwy.net',
-        'PORT': '12888',
+        'NAME': 'WEB_EVENT',
+        'USER': 'webprojectuser',
+        'PASSWORD': 'q1w2e3r4asdf',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
 
