@@ -50,7 +50,7 @@ class Event(models.Model):
     objects = models.Manager()
 
     class Meta:
-        ordering = ('event_name',)
+        ordering = ('pk',)
 
 
 class Comment(models.Model):
