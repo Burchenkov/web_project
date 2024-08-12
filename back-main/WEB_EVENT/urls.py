@@ -22,7 +22,7 @@ from . import views
 urlpatterns = [
     path('', views.home, name='home'),
     path('admin/', admin.site.urls),
-    re_path('^signup/$', views.user_create),
+    re_path('^signup/$', views.UserCreateView, name='sign_up'),
     re_path('^signin/$', views.user_login),
     re_path('^events/$', views.events_get),
     re_path('^event_add/$', views.event_add),

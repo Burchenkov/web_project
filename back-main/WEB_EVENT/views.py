@@ -6,7 +6,8 @@ from django.core.exceptions import ObjectDoesNotExist
 from rest_framework.renderers import JSONRenderer
 from rest_framework.parsers import JSONParser
 from rest_framework import status
-from rest_framework.decorators import api_view
+from rest_framework import permissions
+from rest_framework.views import APIView
 
 from .models import User, Event
 from .serializers import UserSerializer, EventSerializer, UserLoginSerializer
@@ -20,13 +21,15 @@ class JSONResponse(HttpResponse):
 
 
 @csrf_exempt
-def user_create(request):
-    user_data = JSONParser().parse(request)
-    user_serializer = UserSerializer(data=user_data)
-    if user_serializer.is_valid():
-        user_serializer.save()
-        return JSONResponse(user_serializer.data, status=status.HTTP_201_CREATED)
-    return JSONResponse(user_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+class UserCreateView(APIView):
+    permission_classes = [permissions.AllowAny]  
+
+    def post(self, request, *args, **kwargs):
+        user_serializer = UserSerializer(data=request.data)
+        if user_serializer.is_valid():
+            user_serializer.save()
+            return HttpResponse(user_serializer.data, status=status.HTTP_201_CREATED)
+        return HttpResponse(user_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 @csrf_exempt
@@ -61,6 +64,7 @@ def home(request):
 
 @csrf_exempt
 def event_add(request):  # add a new event object
+    permissions_class = [permissions.AllowAny]
     event_data = JSONParser().parse(request)
     event_serializer = EventSerializer(data=event_data)
     if event_serializer.is_valid():

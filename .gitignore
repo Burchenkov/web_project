@@ -3,3 +3,4 @@ testDB.py
 .idea/
 __pycache__/
 migrations/
+main.py
