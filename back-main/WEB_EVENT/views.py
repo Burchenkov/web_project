@@ -61,7 +61,7 @@ def events_get(request):  # getting of all events objects
         return JSONResponse(events_serializer.data, status=status.HTTP_200_OK)
 
 def home(request):
-    csrf_token = get_token()
+    csrf_token = get_token(request)
     return JSONResponse({"Hello":"World", "csrf_token":csrf_token}, status=status.HTTP_200_OK)
 
 @csrf_exempt
