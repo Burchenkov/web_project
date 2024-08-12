@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.core.exceptions import ObjectDoesNotExist
+from django.middleware.csrf import get_token
 
 from rest_framework.renderers import JSONRenderer
 from rest_framework.parsers import JSONParser
@@ -60,7 +61,8 @@ def events_get(request):  # getting of all events objects
         return JSONResponse(events_serializer.data, status=status.HTTP_200_OK)
 
 def home(request):
-    return JSONResponse({"Hello":"World"}, status=status.HTTP_200_OK)
+    csrf_token = get_token()
+    return JSONResponse({"Hello":"World", "csrf_token":csrf_token}, status=status.HTTP_200_OK)
 
 @csrf_exempt
 def event_add(request):  # add a new event object
