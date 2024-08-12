@@ -30,6 +30,13 @@ def user_create(request):
 
 
 @csrf_exempt
+def users_get(request):  # getting of all users objects
+    if request.method == 'GET':
+        users = User.objects.all()
+        users_serializer = UserSerializer(users, many=True)
+        return JSONResponse(users_serializer.data, status=status.HTTP_200_OK)
+
+@csrf_exempt
 def user_login(request):  # sigin procedure with checking login & password
     credentials_data = JSONParser().parse(request)
     user_serializer = UserLoginSerializer(credentials_data)

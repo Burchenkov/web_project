@@ -6,7 +6,7 @@
 
 USER
 	# creating of the new user
-		http POST :8000/signup/ email="someone2@example.com" login="MegaUser" role="user" password="123456" secret_phrase="Restore password" avatar="c:\avatar.jpeg"
+		http POST :8000/signup/ email="someone56@example.com" login="MegaUser56" role="user" password="123456" secret_phrase="Restore password" avatar="c:\avatar.jpeg"
 
 	# creation of objects
 		user1 = User(email = "someone@example.com", login = "someone", role = "user", password = "q1w2e3r4", secret_phrase = "Restore password", avatar = "c:\avatar.jpeg")
