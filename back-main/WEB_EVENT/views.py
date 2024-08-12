@@ -24,7 +24,7 @@ class JSONResponse(HttpResponse):
 class UserCreateView(APIView):
     permission_classes = [permissions.AllowAny]  
 
-    def post(self, request, *args, **kwargs):
+    def post(self, request):
         user_serializer = UserSerializer(data=request.data)
         if user_serializer.is_valid():
             user_serializer.save()
