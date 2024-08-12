@@ -20,7 +20,7 @@ class JSONResponse(HttpResponse):
         super(JSONResponse, self).__init__(content, **kwargs)
 
 
-@csrf_exempt
+
 class UserCreateView(APIView):
     permission_classes = [permissions.AllowAny]  
 
