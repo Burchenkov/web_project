@@ -50,6 +50,33 @@ def user_login(request):  # sigin procedure with checking login & password
 
 
 @csrf_exempt
+def user_change(request, pk):  # update & delete user by pk(id). For that we need pk.
+    try:
+        user_obj = User.objects.get(pk=pk)
+    except ObjectDoesNotExist:
+        return HttpResponse(status=status.HTTP_404_NOT_FOUND)
+
+    # get the certain USER by pk
+    if request.method == 'GET':
+        user_serializer = UserSerializer(user_obj)
+        return JSONResponse(user_serializer.data)
+
+    # update USER object
+    if request.method == 'PUT':
+        user_data = JSONParser().parse(request)
+        user_serializer = UserSerializer(user_obj, data=user_data)
+        if user_serializer.is_valid():
+            user_serializer.save()
+            return JSONResponse(user_serializer.data, status=status.HTTP_200_OK)
+        return HttpResponse(status=status.HTTP_400_BAD_REQUEST)
+
+    # delete USER object
+    if request.method == 'DELETE':
+        user_obj.delete()
+        return HttpResponse(status=status.HTTP_204_NO_CONTENT)
+
+
+@csrf_exempt
 def events_get(request):  # getting of all events objects
     if request.method == 'GET':
         events = Event.objects.all()
@@ -79,7 +106,7 @@ def event_change(request, pk):  # update of certain event object
         event_serializer = EventSerializer(event_obj)
         return JSONResponse(event_serializer.data)
 
-    # update of event object
+    # update event object
     if request.method == 'PUT':
         event_data = JSONParser().parse(request)
         event_serializer = EventSerializer(event_obj, data=event_data)
@@ -88,7 +115,7 @@ def event_change(request, pk):  # update of certain event object
             return JSONResponse(event_serializer.data, status=status.HTTP_200_OK)
         return HttpResponse(status=status.HTTP_400_BAD_REQUEST)
 
-    # delete of event object
+    # delete event object
     if request.method == 'DELETE':
         event_obj.delete()
         return HttpResponse(status=status.HTTP_204_NO_CONTENT)

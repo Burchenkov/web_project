@@ -1,7 +1,7 @@
 # This file includes examples of testing API. There we have two options for using:
 #  - httpie
 # HTTPie is a bit comfortable for checking JSON data.
-# Backend Dkango развернут по адресу:
+# Backend Django развернут по адресу:
     http web-project-tahn4-u.vercel.app:80/events/
 
 USER
@@ -33,6 +33,12 @@ USER
 		# this is for correct password
 		http POST :8000/signin/ login="Someone3" password="12345"
 
+	# test for delete
+	    http DELETE :8000/user_change/5
+
+	# test for update
+	    http PUT :8000/user_change/4  email="USER4@example.com" login="user4" role="user" password="q1w2e3r4" secret_phrase="Restore password" avatar = "c:\avatar.jpeg"
+
 EVENT
 	# getting of the list Events from backend with headers:
 		http :8000/events/
@@ -45,7 +51,7 @@ EVENT
 		# create of the new event. Certain event we can find by pk
 		http POST :8000/event_add/ event_name="MMA Fight" date="2024-01-01" city="Zelenograd" description="This is MMA Fight" price="0" image="c:\image_MMAFight.jpeg"  age_limit="14"  start_time="10:00:00" duration="4" user_limit="1000"
 		http POST :8000/event_add/ event_name="Boxing Fight" date="2024-10-10" city="Khimki" description="Roy Jones vs Mike Tyson" price="0" image="c:\image_BOXING.jpeg"  age_limit="8"  start_time="11:00:00" duration="2" user_limit="1000"
-		http POST :8000/event_add/ event_name="Бобслей" date="2024-07-07" city="Сочи" description="Чемпионат России" price=0 image="c:\бобслей.jpeg"  age_limit=0  start_time="11:00:00" duration=2 user_limit=1000
+		http POST :8000/event_add/ event_name="Бокс" date="2024-08-03" city="Париж" description="Олимпийские игры" price=0 image="c:\бобслей.jpeg" age_limit=0  start_time="11:00:00" duration=2 user_limit=1000
 		
 		# update the event which we can find by pk
 		http PUT :8000/event_change/4 event_name="Boxing Fight" date="2024-10-10" city="Москва" description="Roy Jones vs Mike Tyson" price="0" image="c:\image_BOXING.jpeg"  age_limit="8"  start_time="11:00:00" duration="2" user_limit="1000"
