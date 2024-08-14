@@ -15,7 +15,7 @@
     color: white;
     -webkit-text-stroke: 3px #3F927E;
     font-size: 1.9rem;
-    margin-left: -75%;
+    margin-left: -50%;
     margin-top: 54%
 }
 
@@ -26,8 +26,10 @@ input {
 }
 
 input.search {
+    border-style: solid;
     width: 850px;
-    height: 32px;
+    height: 35px;
+    margin-right: -9px;
 }
 
 .mgfng-glass-icon {
@@ -37,12 +39,27 @@ input.search {
 }
 
 button {
+    font-size: 0.9rem;
+    border-style: solid;
+    border-color: #529374;
+    border-width: 3px;
+    color: #000000;
+    border-radius: 8px;
+    background-color: #ffffff;
+    width: 120px;
+    height: 35px;
+    margin-right: 10px;
+}
+
+.button-signup {
+    font-size: 0.9rem;
     border: none;
     color: #ffffff;
-    border-radius: 5px;
+    border-radius: 8px;
     background-color: #529374;
-    height: 30px;
-    margin-right: 5px;
+    width: 140px;
+    height: 35px;
+    margin-right: 10px;
 }
 
 .main {
@@ -55,23 +72,8 @@ button {
     margin-left: -27%;
 }
 
-.main-categories-1 {
-    position: absolute;
-    margin-left: 10%;
-}
-
-.main-categories-2 {
-    position: absolute;
-    margin-left: 14%;
-    padding-right: 21px;
-    padding-left: 21px;
-}
-
-.main-categories-3 {
-    position: absolute;
-    margin-left: 18%;
-    padding-right: 14px;
-    padding-left: 15px;
+.main-categories {
+    margin-right: 27%
 }
 
 .card {
