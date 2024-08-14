@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
-import dj_database_url
+# import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -64,6 +64,12 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'WEB_EVENT.urls'
+
+DEFAULT_PARSER_CLASSES = (
+    'rest_framework.parsers.JSONParser',
+    'rest_framework.parsers.FormParser',
+    'rest_framework.parsers.MultiPartParser'
+)
 
 TEMPLATES = [
     {

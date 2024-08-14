@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.core.exceptions import ObjectDoesNotExist
@@ -7,6 +6,7 @@ from rest_framework.renderers import JSONRenderer
 from rest_framework.parsers import JSONParser
 from rest_framework import status
 from rest_framework.decorators import api_view
+from rest_framework.response import Response
 
 from .models import User, Event
 from .serializers import UserSerializer, EventSerializer, UserLoginSerializer
@@ -36,8 +36,9 @@ def users_get(request):  # getting of all users objects
         users_serializer = UserSerializer(users, many=True)
         return JSONResponse(users_serializer.data, status=status.HTTP_200_OK)
 
+
 @csrf_exempt
-def user_login(request):  # sigin procedure with checking login & password
+def user_login(request):  # signin procedure with checking login & password
     credentials_data = JSONParser().parse(request)
     user_serializer = UserLoginSerializer(credentials_data)
     input_login = user_serializer.data["login"]  # login which input by user

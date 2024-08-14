@@ -37,7 +37,7 @@ USER
 	    http DELETE :8000/user_change/5
 
 	# test for update
-	    http PUT :8000/user_change/4  email="USER4@example.com" login="user4" role="user" password="q1w2e3r4" secret_phrase="Restore password" avatar = "c:\avatar.jpeg"
+	    http PUT :8000/user_change/4  email="USER4@example.com" login="user4" role="user" password="q1w2e3r4" secret_phrase="Restore password" avatar="c:\avatar.jpeg"
 
 EVENT
 	# getting of the list Events from backend with headers:
