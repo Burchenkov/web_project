@@ -20,7 +20,7 @@ class JSONResponse(HttpResponse):
 
 
 @csrf_exempt
-def user_create(request):
+def user_create(request):   # signup(creation) procedure of new user
     user_data = JSONParser().parse(request)
     user_serializer = UserSerializer(data=user_data)
     if user_serializer.is_valid():
