@@ -1,5 +1,6 @@
-import { initPopup } from "./signin_login/sign_login_scripts.js";
+import { initPopup } from "./header/header.js";
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", (e) => {
   initPopup();
+
 });

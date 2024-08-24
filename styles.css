@@ -1,3 +1,5 @@
+@import url("./header/header.css");
+
 /* _________________________ОСНОВНЫЕ_________________________ */
 .container {
     display: flex;
@@ -145,6 +147,3 @@ footer {
     text-align: center;
     margin-top: 40px;
 }
-
-/* _________________________РЕГИСТРАЦИЯ_________________________ */
-@import url("./signin_login/sign_login_style.css");
