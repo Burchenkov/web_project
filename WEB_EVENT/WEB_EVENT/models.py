@@ -1,7 +1,10 @@
 # models of the WEB_EVENT project
 
 from django.db import models
-from datetime import datetime
+from django.conf import settings
+
+import jwt
+from datetime import datetime, timedelta
 
 
 class User(models.Model):
@@ -12,10 +15,36 @@ class User(models.Model):
     secret_phrase = models.CharField(max_length=30)
     avatar = models.CharField(max_length=100)
 
+    # свойство USERNAME_FIELD сообщает нам, какое поле мы будем использовать
+    # для входа в систему. В данном случаем мы будем использовать логин
+    USERNAME_FIELD = 'login'
+
     objects = models.Manager()
 
     class Meta:
         ordering = ('email',)
+
+    @property
+    def token(self):
+        """
+            Позволяет получить token пользователя путем вызова user.token, вместо
+            user._generate_jwt_token. Декоратор @property делает это возможным.
+        """
+        return self._generate_jwt_token()
+
+    def _generate_jwt_token(self):
+        """
+        Генерирует WEBтокен JSON, в котором хранится id пользователя, срок действия токена
+        60 дней с момента создания
+        """
+        dt = datetime.now() + timedelta(days=60)
+
+        token = jwt.encode({
+            'id': self.pk,
+            'exp': int(dt.timestamp())
+        }, settings.SECRET_KEY, algorithm='HS256')
+
+        return token
 
 
 class Admin(User):
