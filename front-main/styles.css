@@ -1,9 +1,11 @@
+@import url("./header/header.css");
+
+/* _________________________ОСНОВНЫЕ_________________________ */
 .container {
     display: flex;
     justify-content: center;
     align-items: center; 
- 
-  }
+}
 
 .item {
     height: 100px;
@@ -14,27 +16,53 @@
 
 .logo {   
     color: white;
-    -webkit-text-stroke: 2px #3F776A;
+    -webkit-text-stroke: 3px #3F927E;
+    font-size: 1.9rem;
+    margin-left: -50%;
+    margin-top: 54%
 }
 
 input {
-    border-color: #529374;
-    border-radius: 5px;
-    
+    border-color: #B1B1B1;
+    border-radius: 7px;
+    font-style: italic
 }
 
 input.search {
-    width: 600px;
-    height: 30px;
+    border-style: solid;
+    width: 850px;
+    height: 35px;
+    margin-right: -9px;
+}
+
+.mgfng-glass-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 9px;
 }
 
 button {
+    font-size: 0.9rem;
+    border-style: solid;
+    border-color: #529374;
+    border-width: 3px;
+    color: #000000;
+    border-radius: 8px;
+    background-color: #ffffff;
+    width: 120px;
+    height: 35px;
+    margin-right: 10px;
+}
+
+.button-signup {
+    font-size: 0.9rem;
     border: none;
     color: #ffffff;
-    border-radius: 5px;
+    border-radius: 8px;
     background-color: #529374;
-    height: 30px;
-    margin-right: 5px;
+    width: 140px;
+    height: 35px;
+    margin-right: 10px;
 }
 
 .main {
@@ -47,23 +75,8 @@ button {
     margin-left: -27%;
 }
 
-.main-categories-1 {
-    position: absolute;
-    margin-left: 10%;
-}
-
-.main-categories-2 {
-    position: absolute;
-    margin-left: 14%;
-    padding-right: 21px;
-    padding-left: 21px;
-}
-
-.main-categories-3 {
-    position: absolute;
-    margin-left: 18%;
-    padding-right: 14px;
-    padding-left: 15px;
+.main-categories {
+    margin-right: 27%
 }
 
 .card {
@@ -97,7 +110,7 @@ button {
 .categories {
     text-align: center;
 }
-  
+
 .category {
     display: inline-block;
     margin: 20px;
@@ -105,75 +118,32 @@ button {
     border: 1px solid #ccc;
     border-radius: 10px;
     box-sizing: border-box;
-    width: 200px; /* Ширина каждой категории */
+    width: 200px; 
 }
-  
+
 .category img {
     width: 50px;
     height: 50px;
     margin-top: 10px;
 }
 
-/* _________________________РЕГИСТРАЦИЯ_________________________ */
-
-body {
-    font-family: Arial;
-    margin: 0;
-    padding: 0;
+footer {
+    background-color: #f9f9f9;
+    padding: 30px 0;
 }
 
-.login-signup-container {
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
     display: flex;
-    justify-items: center;
-    font-family: Arial;
-    width: 100%;
-    border-radius: 5px;
+    justify-content: space-between;
+}
+
+.footer-section {
+    width: 20%;
+}
+
+.footer-bottom {
     text-align: center;
-    background-color: white;
-    z-index: 1;
-
-}
-
-#signup-form {
-    position: absolute;
-    margin-left: 38%;
-    width: 300px;
-    height: 300px;
-    top: -20%;
-    opacity: 0;
-    transition: all .5s;
-    z-index: 100;
-    background-color: #ffffff;
-    box-shadow: 12px 12px 2px 1px rgba(65, 120, 110, .3);
-
-}
-
-#login-form {
-    position: absolute;
-    margin-left: 38%;
-    width: 300px;
-    height: 250px;
-    top: -20%;
-    opacity: 0;
-    transition: all .5s;
-    z-index: 100;
-    background-color: #ffffff;
-    box-shadow: 12px 12px 2px 1px rgba(65, 120, 110, .3);
-
-
-}
-
-input {  
-    padding: 8px;
-    margin: 5px;
-}
-
-
-a {
-    color: #3F776A;
-    text-decoration: none;
-}
-
-#privacyPolicy {
-    cursor: pointer;
+    margin-top: 40px;
 }
