@@ -19,6 +19,7 @@ html {
 
 .header {
   display: flex;
+  max-width: 1400px;
   width: 90%;
   justify-content: space-between;
   align-items: center;
@@ -93,8 +94,9 @@ button {
   display: flex;
   flex-direction: column;
   top: 8vh;
+  left: 50%;
   position: absolute;
-  transform: translateY(-40px);
+  transform: translate(-50%, -40%);
   transition: all ease 0.4s;
   background-color: whitesmoke;
   padding: 20px;
@@ -116,9 +118,9 @@ button {
   visibility: visible;
   z-index: 2;
   opacity: 1;
-  transform: translateY(50%);
-  transform: translateX(50%);
+  transform: translate(-50%, 0);
 }
+
 input { 
   padding: 10px;
   width: 100%;
