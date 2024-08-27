@@ -19,6 +19,7 @@ html {
 
 .header {
   display: flex;
+  width: 90%;
   justify-content: space-between;
   align-items: center;
   padding: 20px;
@@ -41,7 +42,6 @@ html {
 
 .header__search input {
   width: 70%; /* Увеличенная ширина строки поиска */
-  padding: 10px;
   border-radius: 5px;
   border: none;
   margin-right: 15px; /* Увеличенный отступ между строкой поиска и кнопкой */
@@ -86,7 +86,7 @@ button {
 
 .popup-container {
   position: absolute;
-  /* left: -20%; */
+  width: 40%;
 }
 
 .popup-form {
@@ -94,31 +94,35 @@ button {
   flex-direction: column;
   top: 8vh;
   position: absolute;
-  width: 25%;
   transform: translateY(-40px);
   transition: all ease 0.4s;
   background-color: whitesmoke;
   padding: 20px;
+  width: 45%;
   border-radius: 10px;
   z-index: -1;
+  opacity: 0;
 }
 
 .popup-form * {
   margin-bottom: 4%;
 }
 
+.popup-form button {
+  width: fit-content;
+}
+
 .popup-form.active {
   visibility: visible;
   z-index: 2;
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(50%);
+  transform: translateX(50%);
 }
-
-input {
-  margin-bottom: 10px;
+input { 
   padding: 10px;
   width: 100%;
-}
+} 
 
 a {
   color: #3f776a;
@@ -144,10 +148,19 @@ a {
 }
 
 /* Адаптивность */
+@media screen and (max-width: 1400px) {
+  .popup-container {
+    width: 65%;
+  }
+}
 @media screen and (max-width: 1200px) {
   #signup-form,
   #login-form {
     width: 35%;
+  }
+
+  .popup-container {
+    width: 85%;
   }
 }
 
@@ -155,6 +168,10 @@ a {
   #signup-form,
   #login-form {
     width: 45%;
+  }
+
+  .popup-container {
+    width: 85%;
   }
 }
 
