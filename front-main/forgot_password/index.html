@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Восстановление пароля</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Восстановление пароля</h1>
+        <form id="resetPasswordForm">
+            <label for="secretWord">Введите секретное слово:</label>
+            <input type="text" id="secretWord" required>
+
+            <label for="newPassword">Введите новый пароль:</label>
+            <input type="password" id="newPassword" required>
+
+            <label for="confirmPassword">Введите пароль для подтверждения:</label>
+            <input type="password" id="confirmPassword" required>
+
+            <button type="submit">Восстановить пароль</button>
+        </form>
+        <div id="message"></div>
+    </div>
+    <div class="overlay" id="overlay"></div>
+    <script src="script.js"></script>
+</body>
+</html>

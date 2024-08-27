@@ -1,0 +1,44 @@
+<!-- header.html -->
+<div class="container header-container">
+  <header class="header">
+    <div class="header__logo">
+      <h1>WEB<br>EVENT</h1>
+    </div>
+    <div class="header__search">
+      <input type="text" placeholder="Поиск по названию" />
+      <button>Искать</button>
+    </div>
+    <div class="header__buttons">
+      <button id="toggle-signup">Регистрация</button>
+      <button id="toggle-login">Войти</button>
+    </div>
+  </header>
+
+  <!-- Всплывающее меню -->
+  <div class="popup-container">
+    <div id="signup-form" class="popup-form">
+      <h2>Регистрация</h2>
+      <input type="email" id="email" placeholder="Введите ваш email" />
+      <input
+        type="text"
+        id="newUsername"
+        placeholder="Новое имя пользователя"
+      />
+      <input type="password" id="newPassword" placeholder="Новый пароль" />
+      <input type="text" id="secretPhrase" placeholder="Секретная фраза" />
+      <button id="reg_btn">Зарегистрироваться</button>
+    </div>
+
+    <div id="login-form" class="popup-form">
+      <h2>Вход</h2>
+      <form id="loginForm">
+        <input type="text" id="username" placeholder="Имя пользователя" />
+        <input type="password" id="password" placeholder="Пароль" />
+        <button type="submit" id="login_btn">Войти</button>
+        <p class="pepa">Забыли <a href="#" id="toggleForm">пароль?</a></p>
+      </form>
+    </div>
+
+    <div id="overlay"></div>
+  </div>
+</div>
