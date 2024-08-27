@@ -1,13 +1,14 @@
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.core.exceptions import ObjectDoesNotExist
+from django.conf import settings
 
 
 from rest_framework.renderers import JSONRenderer
 from rest_framework.parsers import JSONParser
 from rest_framework import status
-from rest_framework.decorators import api_view
-from rest_framework.response import Response
+import jwt
+from datetime import datetime, timedelta
 
 from .models import User, Event
 from .serializers import UserSerializer, EventSerializer, UserLoginSerializer
@@ -52,10 +53,27 @@ def user_login(request):  # signin procedure with checking login & password
         return HttpResponse(content, status=status.HTTP_401_UNAUTHORIZED)
 
     if input_password == db_user_object.password:  # checking password if the user exists
-        return HttpResponse(status=status.HTTP_200_OK)
+        pk = db_user_object.id
+        token = _generate_jwt_token(request, pk)
+        return JSONResponse(token, status=status.HTTP_200_OK)
     else:
         content = "The password is incorrect"
         return HttpResponse(content, status=status.HTTP_401_UNAUTHORIZED)
+
+
+def _generate_jwt_token(request, pk):
+    """
+    Генерирует WEBтокен JSON, в котором хранится id пользователя, срок действия токена
+    60 дней с момента создания
+    """
+    dt = datetime.now() + timedelta(days=60)
+
+    token = jwt.encode({
+        'id': pk,
+        'exp': int(dt.timestamp())
+    }, settings.SECRET_KEY, algorithm='HS256')
+
+    return token
 
 
 @csrf_exempt

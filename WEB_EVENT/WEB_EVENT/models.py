@@ -24,27 +24,28 @@ class User(models.Model):
     class Meta:
         ordering = ('email',)
 
-    @property
-    def token(self):
-        """
-            Позволяет получить token пользователя путем вызова user.token, вместо
-            user._generate_jwt_token. Декоратор @property делает это возможным.
-        """
-        return self._generate_jwt_token()
-
-    def _generate_jwt_token(self):
-        """
-        Генерирует WEBтокен JSON, в котором хранится id пользователя, срок действия токена
-        60 дней с момента создания
-        """
-        dt = datetime.now() + timedelta(days=60)
-
-        token = jwt.encode({
-            'id': self.pk,
-            'exp': int(dt.timestamp())
-        }, settings.SECRET_KEY, algorithm='HS256')
-
-        return token
+    # This is alternative version of token generation function.
+    # @property
+    # def token(self):
+    #     """
+    #         Позволяет получить token пользователя путем вызова user.token, вместо
+    #         user._generate_jwt_token. Декоратор @property делает это возможным.
+    #     """
+    #     return self._generate_jwt_token()
+    #
+    # def _generate_jwt_token(self):
+    #     """
+    #     Генерирует WEBтокен JSON, в котором хранится id пользователя, срок действия токена
+    #     60 дней с момента создания
+    #     """
+    #     dt = datetime.now() + timedelta(days=60)
+    #
+    #     token = jwt.encode({
+    #         'id': self.pk,
+    #         'exp': int(dt.timestamp())
+    #     }, settings.SECRET_KEY, algorithm='HS256')
+    #
+    #     return token
 
 
 class Admin(User):

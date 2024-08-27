@@ -31,7 +31,7 @@ USER
 		http POST :8000/signin/ login="Someone3" password="12345"
 
 		# this is for correct password
-		http POST :8000/signin/ login="Someone3" password="12345"
+		http POST :8000/signin/ login="someone" password="q1w2e3r4"
 
 	# test for delete
 	    http DELETE :8000/user_change/5
