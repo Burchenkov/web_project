@@ -1,163 +1,219 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8"/>
-        <title>Web.Event - управление событиями</title>
-        <script src="script.js"></script>
-        <link rel="stylesheet" href="styles.css">
-    </head>
-    <body>
-
-            <div class="buttonSwitch">
-                <div class="container">
-                    <div class="item">
-                        <div class="logo"><h1>WEB<br>EVENT</div>
-                    </div>
-                        
-                    <div class="item">
-                        <form>
-                            <input class="search" type="search" placeholder="Поиск по названию">
-                            <button class="search">Искать!</button>
-                        </form>
-                    </div>
-                    <div class="item">
-                            <button id="toggle-signup">Регистрация</button>
-                            <button id="toggle-login">Войти</button>
-                    </div>
-
-                </div>
-
-            
-                <div class="login-signup-container">
-                    <div id="signup-form">
-                        <h2>Регистрация</h2>
-                        <input type="email" id="email" placeholder="Enter your email">
-                        <input type="text" id="newUsername" placeholder="New Username">
-                        <input type="password" id="newPassword" placeholder="New Password"></br>
-                        <input type="checkbox" id="privacyPolicy"><span>I agree to the Privacy Policy</span>
-                        <p><button>Зарегистрироваться</button></p>
-                    </div>
-            
-                    <div id="login-form">
-                        <h2 id="formTitle">Вход</h2>
-                        <form id="loginForm">
-                            <input type="text" id="username" placeholder="Username">
-                            <input type="password" id="password" placeholder="Password">
-                            <p><button type="submit">Войти</button></p>
-                            <p>Forgot <a href="#" id="toggleForm">password</a></p>
-                        </form>
-                     </div>
-                
-                </div>
-            
+  <head>
+    <meta charset="utf-8" />
+    <title>Web.Event - управление событиями</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Placeholder для header -->
+    <div id="header-placeholder"></div>
+    <main>
+      <div class="main">
+        <div class="container">
+          <div class="item">
+            <h1 class="main-title">Новые >></h1>
+            <button class="main-categories">КАТЕГОРИЯ</button>
+            <button class="main-categories">ДАТА</button>
+            <button class="main-categories">МОСКВА</button>
+          </div>
+        </div>
+        <div class="container">
+          <div class="card">
+            <img src="/img/meeting.jpg" alt="Митинг ЛДПР" />
+            <div class="card-content">
+              Либерально-демократическая партия России Митинг в поддержку
+              чего-нибудь Москва, Красная площадь 8-10 июля 2024г | 19:00-22:00
+              Бесплатно
             </div>
-
-            <main>
-                <div class="main">
-                    <div class="container">
-                        <div class="item">
-                            <h1 class="main-title">Новые >></h1>
-                            <button class="main-categories-1">Категория</button>
-                            <button class="main-categories-2">Дата</button>
-                            <button class="main-categories-3">Москва</button>
-                        </div>
-                    </div>
-                    <div class="container">
-                        <div class="card">
-                            <img src="/img/meeting.jpg" alt="Митинг ЛДПР">
-                            <div class="card-content">
-                                Либерально-демократическая партия России
-                                Митинг в поддержку чего-нибудь
-                                Москва, Красная площадь
-                                8-10 июля 2024г | 19:00-22:00
-                                Бесплатно
-                            </div>
-                        </div>
-                        <div class="card">
-                            <img src="/img/meeting.jpg" alt="Митинг ЛДПР">
-                            <div class="card-content">
-                                Либерально-демократическая партия России
-                                Митинг в поддержку чего-нибудь
-                                Москва, Красная площадь
-                                8-10 июля 2024г | 19:00-22:00
-                                Бесплатно
-                            </div>
-                        </div>
-                        <div class="card">
-                            <img src="/img/meeting.jpg" alt="Митинг ЛДПР">
-                            <div class="card-content">
-                                Либерально-демократическая партия России
-                                Митинг в поддержку чего-нибудь
-                                Москва, Красная площадь
-                                8-10 июля 2024г | 19:00-22:00
-                                Бесплатно
-                            </div>
-                        </div>
-                    </div>
-                    <div class="container">
-                        <div class="item">
-                            <h1 class="main-title">Категории >></h1>
-                        </div>
-                    </div>
-                    <div class="container">
-                        <section class="categories">
-                            <div class="category">
-                                <img src="https://ucare.timepad.ru/7dd48746-935f-4c46-8658-affe11e0eaea/" alt="Концерты">
-                                <h3>Концерты</h3>
-                                <p>301 событие</p>
-                            </div>
-                            <div class="category">
-                                <img src="https://ucare.timepad.ru/fd6de689-863b-4a81-807d-2f31f4148a0a/" alt="Культура">
-                                <h3>Культура</h3>
-                                <p>721 событие</p>
-                            </div>
-                            <div class="category">
-                                <img src="https://ucare.timepad.ru/ef784b10-bea3-420c-8ba4-a64a75388b35/" alt="Экскурсии">
-                                <h3>Экскурсии</h3>
-                                <p>590 событий</p>
-                            </div>
-                        </section>
-                    </div>
-                    <div class="container">
-                        <section class="categories">
-                            <div class="category">
-                                <img src="https://ucare.timepad.ru/60ae4ae6-878a-4a46-a686-6a35e1dc0a41/" alt="Вечеринки">
-                                <h3>Вечеринки</h3>
-                                <p>161 событие</p>
-                            </div>
-                            <div class="category">
-                                <img src="https://ucare.timepad.ru/130f2146-c845-477b-a753-d0c15aaf9b2f/" alt="Для детей">
-                                <h3>Для детей</h3>
-                                <p>334 события</p>
-                            </div>
-                            <div class="category">
-                                <img src="https://ucare.timepad.ru/63e01131-dd05-4f77-87d7-fe3b46913aff/" alt="Театры">
-                                <h3>Театры</h3>
-                                <p>162 события</p>
-                            </div>
-                        </section>
-                    </div>
-                    <div class="container">
-                        <section class="categories">
-                            <div class="category">
-                                <img src="https://ucare.timepad.ru/f018e9c7-849b-462e-bdf2-ce61b3d8549e/" alt="Бизнес">
-                                <h3>Бизнес</h3>
-                                <p>525 событие</p>
-                            </div>
-                            <div class="category">
-                                <img src="https://ucare.timepad.ru/0aa5adb7-412e-4dab-9aaf-95116dca1407/" alt="Самопознание">
-                                <h3>Самопознание</h3>
-                                <p>356 событий</p>
-                            </div>
-                            <div class="category">
-                                <img src="https://ucare.timepad.ru/ccb2ac5c-29ef-4f6c-b0a9-e253c5308d9d/" alt="Наука">
-                                <h3>Наука</h3>
-                                <p>98 событий</p>
-                            </div>
-                        </section>
-                    </div>
-                </div>
-            </main>
-
-    </body>
+          </div>
+          <div class="card">
+            <img src="/img/meeting.jpg" alt="Митинг ЛДПР" />
+            <div class="card-content">
+              Либерально-демократическая партия России Митинг в поддержку
+              чего-нибудь Москва, Красная площадь 8-10 июля 2024г | 19:00-22:00
+              Бесплатно
+            </div>
+          </div>
+          <div class="card">
+            <img src="/img/meeting.jpg" alt="Митинг ЛДПР" />
+            <div class="card-content">
+              Либерально-демократическая партия России Митинг в поддержку
+              чего-нибудь Москва, Красная площадь 8-10 июля 2024г | 19:00-22:00
+              Бесплатно
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="item">
+            <h1 class="main-title">Категории >></h1>
+          </div>
+        </div>
+        <div class="container">
+          <section class="categories">
+            <div class="category">
+              <img
+                src="https://ucare.timepad.ru/7dd48746-935f-4c46-8658-affe11e0eaea/"
+                alt="Концерты"
+              />
+              <h3>Концерты</h3>
+              <p>301 событие</p>
+            </div>
+            <div class="category">
+              <img
+                src="https://ucare.timepad.ru/fd6de689-863b-4a81-807d-2f31f4148a0a/"
+                alt="Культура"
+              />
+              <h3>Культура</h3>
+              <p>721 событие</p>
+            </div>
+            <div class="category">
+              <img
+                src="https://ucare.timepad.ru/ef784b10-bea3-420c-8ba4-a64a75388b35/"
+                alt="Экскурсии"
+              />
+              <h3>Экскурсии</h3>
+              <p>590 событий</p>
+            </div>
+          </section>
+        </div>
+        <div class="container">
+          <section class="categories">
+            <div class="category">
+              <img
+                src="https://ucare.timepad.ru/60ae4ae6-878a-4a46-a686-6a35e1dc0a41/"
+                alt="Вечеринки"
+              />
+              <h3>Вечеринки</h3>
+              <p>161 событие</p>
+            </div>
+            <div class="category">
+              <img
+                src="https://ucare.timepad.ru/130f2146-c845-477b-a753-d0c15aaf9b2f/"
+                alt="Для детей"
+              />
+              <h3>Для детей</h3>
+              <p>334 события</p>
+            </div>
+            <div class="category">
+              <img
+                src="https://ucare.timepad.ru/63e01131-dd05-4f77-87d7-fe3b46913aff/"
+                alt="Театры"
+              />
+              <h3>Театры</h3>
+              <p>162 события</p>
+            </div>
+          </section>
+        </div>
+        <div class="container">
+          <section class="categories">
+            <div class="category">
+              <img
+                src="https://ucare.timepad.ru/f018e9c7-849b-462e-bdf2-ce61b3d8549e/"
+                alt="Бизнес"
+              />
+              <h3>Бизнес</h3>
+              <p>525 событие</p>
+            </div>
+            <div class="category">
+              <img
+                src="https://ucare.timepad.ru/0aa5adb7-412e-4dab-9aaf-95116dca1407/"
+                alt="Самопознание"
+              />
+              <h3>Самопознание</h3>
+              <p>356 событий</p>
+            </div>
+            <div class="category">
+              <img
+                src="https://ucare.timepad.ru/ccb2ac5c-29ef-4f6c-b0a9-e253c5308d9d/"
+                alt="Наука"
+              />
+              <h3>Наука</h3>
+              <p>98 событий</p>
+            </div>
+          </section>
+        </div>
+        <div class="container">
+          <div class="item">
+            <h1 class="main-title">Все мероприятия >></h1>
+          </div>
+        </div>
+        <div class="container">
+          <div class="card">
+            <img src="/img/meeting.jpg" alt="Митинг ЛДПР" />
+            <div class="card-content">
+              Либерально-демократическая партия России Митинг в поддержку
+              чего-нибудь Москва, Красная площадь 8-10 июля 2024г | 19:00-22:00
+              Бесплатно
+            </div>
+          </div>
+          <div class="card">
+            <img src="/img/meeting.jpg" alt="Митинг ЛДПР" />
+            <div class="card-content">
+              Либерально-демократическая партия России Митинг в поддержку
+              чего-нибудь Москва, Красная площадь 8-10 июля 2024г | 19:00-22:00
+              Бесплатно
+            </div>
+          </div>
+          <div class="card">
+            <img src="/img/meeting.jpg" alt="Митинг ЛДПР" />
+            <div class="card-content">
+              Либерально-демократическая партия России Митинг в поддержку
+              чего-нибудь Москва, Красная площадь 8-10 июля 2024г | 19:00-22:00
+              Бесплатно
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <div class="container">
+      <button>Загрузить еще</button>
+    </div>
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Афиша событий</h3>
+          <ul>
+            <li>Рекомендуемые</li>
+            <li>Подписки</li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Организаторам</h3>
+          <ul>
+            <li>Создать событие</li>
+            <li>Возможности</li>
+            <li>Тарифы</li>
+            <li>Реклама</li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Web Event</h3>
+          <ul>
+            <li>О нас</li>
+            <li>Блог</li>
+            <li>Вакансии</li>
+            <li>Контакты</li>
+            <li>Документы</li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Помощь</h3>
+          <ul>
+            <li>Задать вопрос</li>
+            <li>База знаний</li>
+            <li>Разработчикам</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; ООО «WEB EVENT» 2024</p>
+        <p>
+          Продолжая работу с нашим сайтом, вы подтверждаете согласие с правилами
+          его использования
+        </p>
+      </div>
+    </footer>
+    <script type="module" src="script.js"></script>
+  </body>
 </html>
