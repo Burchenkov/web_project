@@ -155,8 +155,8 @@ def comment_add(request):
         comment_data = JSONParser().parse(request)
         comment_serializer = CommentSerializer(comment_data)
         comment_text = comment_serializer.data['text']
-        timestmap = datetime.now()
-        comment_obj = Comment(text=comment_text, created_at=timestmap)
+        timestamp = datetime.now()
+        comment_obj = Comment(text=comment_text, created_at=timestamp)
         comment_obj.save()
     return HttpResponse(status=status.HTTP_201_CREATED)
 
