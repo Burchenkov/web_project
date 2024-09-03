@@ -59,3 +59,10 @@ EVENT
 		
 		# delete of some event
 		http DELETE :8000/event_change/2
+
+Comment:
+    # add a new comment
+    http POST :8000/comment_add/  text="This is comment for test"
+
+    #delete the certain post. For this option you have to know id(pk) of the comment.
+    http DELETE :8000/comment_delete/ pk=4
