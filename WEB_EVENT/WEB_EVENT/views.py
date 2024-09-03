@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.core.exceptions import ObjectDoesNotExist
+from datetime import datetime, date, time
 from django.conf import settings
 
 
@@ -10,8 +11,8 @@ from rest_framework import status
 import jwt
 from datetime import datetime, timedelta
 
-from .models import User, Event
-from .serializers import UserSerializer, EventSerializer, UserLoginSerializer
+from .models import User, Event, Comment
+from .serializers import UserSerializer, EventSerializer, UserLoginSerializer, CommentSerializer
 
 
 class JSONResponse(HttpResponse):
@@ -146,3 +147,25 @@ def event_change(request, pk):  # update of certain event object
     if request.method == 'DELETE':
         event_obj.delete()
         return HttpResponse(status=status.HTTP_204_NO_CONTENT)
+
+
+@csrf_exempt
+def comment_add(request):
+    if request.method == 'POST':
+        comment_data = JSONParser().parse(request)
+        comment_serializer = CommentSerializer(comment_data)
+        comment_text = comment_serializer.data['text']
+        timestmap = datetime.now()
+        comment_obj = Comment(text=comment_text, created_at=timestmap)
+        comment_obj.save()
+    return HttpResponse(status=status.HTTP_201_CREATED)
+
+
+@csrf_exempt
+def comment_delete(request):
+    comment_data = JSONParser().parse(request)
+    pk = comment_data['pk']
+    print(f'pk = {pk}')
+    comment_obj = Comment.objects.get(pk=pk)
+    comment_obj.delete()
+    return HttpResponse(status=status.HTTP_204_NO_CONTENT)

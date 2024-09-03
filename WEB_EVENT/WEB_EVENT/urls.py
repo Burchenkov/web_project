@@ -29,4 +29,6 @@ urlpatterns = [
     re_path('^events/$', views.events_get),
     re_path('^event_add/$', views.event_add),
     re_path('^event_change/(?P<pk>[0-9]+)$', views.event_change),
+    re_path('^comment_add/$', views.comment_add),
+    re_path(r'^comment_delete/$', views.comment_delete)
 ]

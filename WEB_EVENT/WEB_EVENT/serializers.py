@@ -67,7 +67,6 @@ class CommentSerializer(serializers.ModelSerializer):
         fields = (
             'pk',
             'text',
-            'created_at',
         )
 
 
