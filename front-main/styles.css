@@ -4,14 +4,31 @@
 .container {
     display: flex;
     justify-content: center;
-    align-items: center; 
+    align-items: center;
+    width: 1400px;
+    margin: auto; 
+}
+
+.item:first-child {
+    height: 100px;
+    margin: 2%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .item {
     height: 100px;
     margin: 2%;
+    width: 100%;
     display: flex;
+    justify-content: start;
     align-items: center;
+}
+
+#header-placeholder {
+    background-color: #1a1a1a;
 }
 
 .logo {   
@@ -50,7 +67,6 @@ button {
     border-radius: 8px;
     background-color: #ffffff;
     width: 120px;
-    height: 35px;
     margin-right: 10px;
 }
 
@@ -71,12 +87,13 @@ button {
 }
 
 .main-title {
-    position: absolute;
-    margin-left: -27%;
+    white-space: nowrap;
 }
 
-.main-categories {
-    margin-right: 27%
+.filters {
+    display: flex;
+    gap: 5%;
+    margin-right: 10%;
 }
 
 .card {
